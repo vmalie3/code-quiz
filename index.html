@@ -15,14 +15,21 @@
         </nav>
     </header>
     <section>
-        <h3 id="question"></h3>
-        <button id = "answerA">A</button>
-        <button id = "answerB">B</button>
-        <button id = "answerC">C</button>
-        <button id = "answerD">D</button>
+        <button id="begin">Start Quiz</button>
+    </section>
+    <section id = "quizBody">
+        <h3 id="title">Questions</h3>
+        <article id = "questions">
+            <ol id = "choices"></ol>
+        </article>
     </section>
     <section>
         <p>Time Left: <span id = "timeLeft"></span></p>
+    </section>
+    <section id = "end">
+        <h3>Enter Name</h3>
+        <input type="text"/>
+        <button>Submit</button>
     </section>
     <script src = "./script.js"></script>
 </body>
