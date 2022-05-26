@@ -5,7 +5,14 @@ var quizEl = document.querySelector('#quizBody');
 var endEl = document.querySelector('#end');
 var beginBtn = document.querySelector('#begin');
 var quizTitle = document.querySelector('#quizBody #title');
-var timer = document.querySelector('#timeLeft')
+var timer = document.querySelector('#timeLeft');
+var question = document.querySelector('#questions');
+
+
+var choiceA = document.querySelector('#choiceBtn1');
+var choiceB = document.querySelector('#choiceBtn2');
+var choiceC = document.querySelector('#choiceBtn3');
+var choiceD = document.querySelector('#choiceBtn4');
 
 var questionsArr = [
     {
@@ -66,14 +73,22 @@ function setTimer() {
     }, 1000);
 }
 
+var questionIndex = 0;
 function displayQuestions() {
-    
+    question.textContent = questionsArr[questionIndex].question;
+    choiceA.textContent = questionsArr[questionIndex].choices[0];
+    choiceB.textContent = questionsArr[questionIndex].choices[1];
+    choiceC.textContent = questionsArr[questionIndex].choices[2];
+    choiceD.textContent = questionsArr[questionIndex].choices[3];
 }
+
+
 
 beginBtn.addEventListener("click", function () {
     state = 'quizBody';
     displayState();
     setTimer();
+    displayQuestions();
 
 });
 
