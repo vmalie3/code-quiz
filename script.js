@@ -19,6 +19,8 @@ var username = localStorage.getItem('name');
 var submitBtn = document.querySelector('#submit');
 var score = parseInt(localStorage.getItem('score'));
 
+//array of objects with question, choices, and answer
+
 var questionsArr = [
     {
         question: 'What is the typical color of grass?',
@@ -37,6 +39,8 @@ var questionsArr = [
     }
 
 ]
+
+//display state functions to choose what is visible
 
 function displayState() {
     if (state === 'begin') {
@@ -60,13 +64,17 @@ function init() {
     displayState();
 }
 
+//timer functions
+
 function displayTimer() {
     timer.textContent = time;
 }
 
-var time = 3;
+
+var time = 5;
 
 function setTimer() {
+        displayTimer();
     var timerInterval = setInterval(function () {
         time--;
         displayTimer();
@@ -82,6 +90,8 @@ function setTimer() {
 
     }, 1000);
 }
+
+//function to show question and answer choices
 
 var questionIndex = 0;
 function displayQuestions() {
@@ -99,7 +109,7 @@ function nextQuestion() {
     });
 }
 
-
+//change question after a choice has been clicked
 
 // for (var i = 0; i < choiceBtns.length; i++) {
 //     choiceBtns[i].addEventListener('click', function() {
@@ -116,6 +126,8 @@ beginBtn.addEventListener("click", function () {
 
 });
 
+
+//display end screen
 
 quizTitle.addEventListener("click", function () {
     state = 'end';
