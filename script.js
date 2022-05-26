@@ -14,6 +14,11 @@ var choiceB = document.querySelector('#choiceBtn2');
 var choiceC = document.querySelector('#choiceBtn3');
 var choiceD = document.querySelector('#choiceBtn4');
 
+
+var username = localStorage.getItem('name');
+var submitBtn = document.querySelector('#submit');
+var score = parseInt(localStorage.getItem('score'));
+
 var questionsArr = [
     {
         question: 'What is the typical color of grass?',
@@ -59,7 +64,7 @@ function displayTimer() {
     timer.textContent = time;
 }
 
-var time = 24;
+var time = 3;
 
 function setTimer() {
     var timerInterval = setInterval(function () {
@@ -70,6 +75,9 @@ function setTimer() {
             clearInterval(timerInterval);
             state = 'end';
             displayState();
+        }
+        if (state === 'end') {
+            score = time;
         }
 
     }, 1000);
@@ -115,7 +123,17 @@ quizTitle.addEventListener("click", function () {
 });
 
 //Local storage
+var message = document.querySelector('#message');
 
-var score = parseInt(localStorage.getItem('score'));
+submitBtn.addEventListener('submit', function () {
+
+    var nameInput = document.querySelector('#text').value;
+    if(nameInput = '') {
+        message.textContent = 'Error; Please enter a name';
+    } else {
+        message.textContent = 'Score logged to High Scores';
+        localStorage.setItem('name', nameInput);
+    }
+})
 
 init();

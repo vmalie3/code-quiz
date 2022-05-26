@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(138, 43, 226, .75);
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline rgb(90, 5, 90);
+    margin-bottom: 5%;
+}
+
+a {
+    text-decoration: none;
+    float: right;
+    margin-right: 2%;
+    color: white;
+    border: solid rgb(90, 5, 90);
+    padding: 1%;
+}
+
+#begin {
+    text-align: center;
+    padding: 1%;
+}
+
+#time {
+    border: solid rgb(90, 5, 90);
+    width: 17%;
+    text-align: center;
+}

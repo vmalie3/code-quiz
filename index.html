@@ -14,7 +14,7 @@
             <a href="#">High Scores</a>
         </nav>
     </header>
-    <section>
+    <section id="containsBegin">
         <button id="begin">Start Quiz</button>
     </section>
     <section id = "quizBody">
@@ -28,12 +28,13 @@
         </ol>
     </section>
     <section>
-        <p>Time Left: <span id = "timeLeft"></span></p>
+        <p id = "time">Time Left: <span id = "timeLeft"></span></p>
     </section>
     <section id = "end">
         <h3>Enter Name</h3>
-        <input type="text"/>
-        <button>Submit</button>
+        <input type="text" placeholder="jane doe"/>
+        <button id="submit">Submit</button>
+        <p id="message"></p>
     </section>
     <script src = "./script.js"></script>
 </body>
