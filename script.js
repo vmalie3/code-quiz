@@ -7,7 +7,7 @@ var beginBtn = document.querySelector('#begin');
 var quizTitle = document.querySelector('#quizBody #title');
 var timer = document.querySelector('#timeLeft');
 var question = document.querySelector('#questions');
-
+var choiceBtns = document.getElementsByClassName('choice');
 
 var choiceA = document.querySelector('#choiceBtn1');
 var choiceB = document.querySelector('#choiceBtn2');
@@ -68,6 +68,8 @@ function setTimer() {
 
         if (time === 0) {
             clearInterval(timerInterval);
+            state = 'end';
+            displayState();
         }
 
     }, 1000);
@@ -82,6 +84,20 @@ function displayQuestions() {
     choiceD.textContent = questionsArr[questionIndex].choices[3];
 }
 
+function nextQuestion() {
+    questionIndex++;
+    choiceBtns.addEventListener('click', function() {
+        nextQuestion();
+    });
+}
+
+
+
+// for (var i = 0; i < choiceBtns.length; i++) {
+//     choiceBtns[i].addEventListener('click', function() {
+//         questionIndex++;
+//     });
+// }
 
 
 beginBtn.addEventListener("click", function () {
@@ -97,5 +113,9 @@ quizTitle.addEventListener("click", function () {
     state = 'end';
     displayState();
 });
+
+//Local storage
+
+var score = parseInt(localStorage.getItem('score'));
 
 init();
