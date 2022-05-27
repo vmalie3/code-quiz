@@ -15,9 +15,7 @@ var choiceC = document.querySelector('#choiceBtn3');
 var choiceD = document.querySelector('#choiceBtn4');
 
 
-var username = localStorage.getItem('name');
-var submitBtn = document.querySelector('#submit');
-var score = parseInt(localStorage.getItem('score'));
+
 
 var questionsArr = [
     {
@@ -64,7 +62,8 @@ function displayTimer() {
     timer.textContent = time;
 }
 
-var time = 10;
+var time = 30;
+var score = 0;
 
 function setTimer() {
     displayTimer();
@@ -79,6 +78,8 @@ function setTimer() {
         }
         if (state === 'end') {
             score = time;
+            console.log(score);
+            clearInterval(timerInterval);
         }
 
     }, 1000);
@@ -93,6 +94,8 @@ function displayQuestions() {
     choiceD.textContent = questionsArr[questionIndex].choices[3];
 }
 
+var correctAnswers = 0;
+
 function nextQuestion() {
     if (questionIndex === 2) {
         state = 'end';
@@ -103,12 +106,20 @@ function nextQuestion() {
     }
 }
 
+
+
+var answer = 0;
+
 beginBtn.addEventListener("click", function () {
     state = 'quizBody';
     displayState();
     setTimer();
     displayQuestions();
     choiceA.addEventListener('click', function() {
+        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
+            answer++;
+            console.log(answer);
+        } 
         nextQuestion();
     })
     choiceB.addEventListener('click', function() {
@@ -131,15 +142,19 @@ quizTitle.addEventListener("click", function () {
 //Local storage
 var message = document.querySelector('#message');
 
-submitBtn.addEventListener('submit', function () {
+var username = localStorage.getItem('#nameInput');
+var submitBtn = document.querySelector('#submit');
+var score = parseInt(localStorage.getItem('score'));
+var nameInput = document.querySelector('#nameInput');
 
-    var nameInput = document.querySelector('#text').value;
-    if(nameInput = '') {
-        message.textContent = 'Error; Please enter a name';
-    } else {
-        message.textContent = 'Score logged to High Scores';
-        localStorage.setItem('name', nameInput);
-    }
+submitBtn.addEventListener('submit', function () {
+    localStorage.setItem('name', nameInput);
+    // if (nameInput = '') {
+    //     message.textContent = 'Error; Please enter a name';
+    // } else {
+    //     message.textContent = 'Score logged to High Scores';
+    //     localStorage.setItem('name', nameInput);
+    // }
 })
 
 init();
