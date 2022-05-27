@@ -119,16 +119,36 @@ beginBtn.addEventListener("click", function () {
         if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
             answer++;
             console.log(answer);
-        } 
+        } else {
+            time = time - 5;
+        }
         nextQuestion();
     })
     choiceB.addEventListener('click', function() {
+        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
+            answer++;
+            console.log(answer);
+        } else {
+            time = time - 5;
+        }
         nextQuestion();
     })
     choiceC.addEventListener('click', function() {
+        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
+            answer++;
+            console.log(answer);
+        } else {
+            time = time - 5;
+        }
         nextQuestion();
     })
     choiceD.addEventListener('click', function() {
+        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
+            answer++;
+            console.log(answer);
+        } else {
+            time = time - 5;
+        }
         nextQuestion();
     })
 });
