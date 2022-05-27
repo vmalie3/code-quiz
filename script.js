@@ -27,7 +27,7 @@ var questionsArr = [
     },
     {
         question: 'Which of these is not a fruit?',
-        choices: ['strawberries', 'apples', 'burger', 'kiwi'],
+        choices: ['berries', 'apples', 'burger', 'kiwi'],
         answer: 'burger'
     },
     {

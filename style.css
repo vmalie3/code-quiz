@@ -24,6 +24,7 @@ a {
 }
 
 #begin {
+    background-color: white;
     padding: 1%;
     margin: 0 auto;
 }
@@ -39,10 +40,29 @@ a {
     text-align: center;
 }
 
+.choice{
+    width: 9%;
+    background-color: white;
+    border-color: rgb(90, 5, 90);
+    padding: 1%;
+    text-align: center;
+}
+
 #choices {
     text-align: center;
 }
 
 #end {
     text-align: center;
+}
+
+#fixRGB {
+    color: rgb(90, 5, 90);
+    text-decoration: underline white;
+
+}
+
+#submit {
+    background-color: white;
+    /* padding: 1%; */
 }
