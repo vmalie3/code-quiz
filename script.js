@@ -14,7 +14,7 @@ var choiceB = document.querySelector('#choiceBtn2');
 var choiceC = document.querySelector('#choiceBtn3');
 var choiceD = document.querySelector('#choiceBtn4');
 
-
+var message = document.querySelector('#message');
 
 
 var questionsArr = [
@@ -75,11 +75,14 @@ function setTimer() {
             clearInterval(timerInterval);
             state = 'end';
             displayState();
+            score = 0;
+            message.textContent = 'Time ran out! Your score is ' + score;
         }
-        if (state === 'end') {
+        if (state === 'end' && time > 0) {
             score = time;
             console.log(score);
             clearInterval(timerInterval);
+            message.textContent = 'Your score is ' + score;
         }
 
     }, 1000);
@@ -100,6 +103,7 @@ function nextQuestion() {
     if (questionIndex === 2) {
         state = 'end';
         displayState();
+
     } else {
         questionIndex++;
         displayQuestions();
@@ -108,13 +112,14 @@ function nextQuestion() {
 
 
 
-var answer = 0;
+
 
 beginBtn.addEventListener("click", function () {
     state = 'quizBody';
     displayState();
     setTimer();
     displayQuestions();
+    var answer = 0;
     choiceA.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
             answer++;
@@ -144,13 +149,13 @@ beginBtn.addEventListener("click", function () {
     })
     choiceD.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
-            answer++;
+            answer ++;
             console.log(answer);
         } else {
             time = time - 5;
         }
         nextQuestion();
-    })
+    }) 
 });
 
 
@@ -160,7 +165,7 @@ quizTitle.addEventListener("click", function () {
 });
 
 //Local storage
-var message = document.querySelector('#message');
+
 
 var username = localStorage.getItem('#nameInput');
 var submitBtn = document.querySelector('#submit');
