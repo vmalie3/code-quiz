@@ -9,6 +9,7 @@ h1 {
     margin-bottom: 5%;
 }
 
+
 a {
     text-decoration: none;
     float: right;
@@ -18,19 +19,20 @@ a {
     padding: 1%;
 }
 
-#begin {
+.containsBegin {
     text-align: center;
+}
+
+#begin {
     padding: 1%;
+    margin: 0 auto;
 }
 
 #time {
     border: solid rgb(90, 5, 90);
-    width: 17%;
+    width: 13%;
     text-align: center;
-}
-
-#message {
-
+    margin-left: 6%;
 }
 
 #questions {
@@ -38,5 +40,9 @@ a {
 }
 
 #choices {
+    text-align: center;
+}
+
+#end {
     text-align: center;
 }
