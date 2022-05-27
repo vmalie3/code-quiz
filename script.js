@@ -114,7 +114,8 @@ function nextQuestion() {
 
 
 
-
+// answer++;
+//             console.log(answer)
 
 beginBtn.addEventListener("click", function () {
     state = 'quizBody';
@@ -124,35 +125,31 @@ beginBtn.addEventListener("click", function () {
     var answer = 0;
     choiceA.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
-            answer++;
-            console.log(answer);
+            time = time + 5;
         } else {
             time = time - 5;
         }
         nextQuestion();
     })
     choiceB.addEventListener('click', function() {
-        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
-            answer++;
-            console.log(answer);
+        if (questionsArr[questionIndex].choices[1] === questionsArr[questionIndex].answer) {
+            time = time + 5;
         } else {
             time = time - 5;
         }
         nextQuestion();
     })
     choiceC.addEventListener('click', function() {
-        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
-            answer++;
-            console.log(answer);
+        if (questionsArr[questionIndex].choices[2] === questionsArr[questionIndex].answer) {
+            time = time + 5;
         } else {
             time = time - 5;
         }
         nextQuestion();
     })
     choiceD.addEventListener('click', function() {
-        if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
-            answer ++;
-            console.log(answer);
+        if (questionsArr[questionIndex].choices[3] === questionsArr[questionIndex].answer) {
+            time = time + 5;
         } else {
             time = time - 5;
         }

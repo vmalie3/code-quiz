@@ -16,6 +16,9 @@ I added some light CSS to make it more visually appealing, however I have not ha
 
 I still must work on troubleshooting my code to store the names and scores both locally and on the page.
 
+
+I also created a penalty of 5 points (5 seconds) for incorrect answers, and a reward of 5 points for correct answers.
+
 ## Visuals
 ![Code-Quiz](./images/Code-Quiz.png)
 
