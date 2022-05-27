@@ -15,6 +15,7 @@ var choiceC = document.querySelector('#choiceBtn3');
 var choiceD = document.querySelector('#choiceBtn4');
 
 var message = document.querySelector('#message');
+var answerMessage = document.querySelector('#answerMessage');
 
 var nameInput = document.getElementById('#nameInput');
 var submitNameBtn = document.querySelector('#submit');
@@ -112,46 +113,45 @@ function nextQuestion() {
     }
 }
 
-
-
-// answer++;
-//             console.log(answer)
-
 beginBtn.addEventListener("click", function () {
     state = 'quizBody';
     displayState();
     setTimer();
     displayQuestions();
-    var answer = 0;
+    
     choiceA.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[0] === questionsArr[questionIndex].answer) {
-            time = time + 5;
+            answerMessage.textContent = 'Correct!';
         } else {
             time = time - 5;
+            answerMessage.textContent = 'Incorrect: -5 seconds';
         }
         nextQuestion();
     })
     choiceB.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[1] === questionsArr[questionIndex].answer) {
-            time = time + 5;
+            answerMessage.textContent = 'Correct!';
         } else {
             time = time - 5;
+            answerMessage.textContent = 'Incorrect: -5 seconds';
         }
         nextQuestion();
     })
     choiceC.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[2] === questionsArr[questionIndex].answer) {
-            time = time + 5;
+            answerMessage.textContent = 'Correct!';
         } else {
             time = time - 5;
+            answerMessage.textContent = 'Incorrect: -5 seconds';
         }
         nextQuestion();
     })
     choiceD.addEventListener('click', function() {
         if (questionsArr[questionIndex].choices[3] === questionsArr[questionIndex].answer) {
-            time = time + 5;
+            answerMessage.textContent = 'Correct!';
         } else {
             time = time - 5;
+            answerMessage.textContent = 'Incorrect: -5 seconds';
         }
         nextQuestion();
     }) 
@@ -167,22 +167,22 @@ quizTitle.addEventListener("click", function () {
 //Local storage
 var createScore = document.querySelector('#addScore');
 
-submitNameBtn.addEventListener('submit', function (event) {
-    event.preventDefault();
+// submitNameBtn.addEventListener('submit', function (event) {
+//     // event.preventDefault();
 
-    var newScore = document.createElement('p');
-    newScore.textContent = nameInput + score;
-    createScore.appendChild(newScore);
-    // var userScore = {
-    //     username: nameInput.value,
-    //     highscore: score.value
-    // };
+//     // var newScore = document.createElement('p');
+//     // newScore.textContent = nameInput + score;
+//     // createScore.appendChild(newScore);
+//     var userScore = {
+//         username: nameInput.value,
+//         highscore: score.value
+//     };
 
-    // var scores = JSON.parse(localStorage.getItem("userScore")) || [];
+//     var scores = JSON.parse(localStorage.getItem("userScore")) || [];
 
-    // scores.push(userScore);
+//     scores.push(userScore);
 
-    // localStorage.setItem('userScore', JSON.stringify(scores));
-});
+//     localStorage.setItem('userScore', JSON.stringify(scores));
+// });
 
 init();
