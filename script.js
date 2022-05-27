@@ -17,8 +17,11 @@ var choiceD = document.querySelector('#choiceBtn4');
 var message = document.querySelector('#message');
 var answerMessage = document.querySelector('#answerMessage');
 
-var nameInput = document.getElementById('#nameInput');
+var nameInput = document.querySelector('#nameInput');
 var submitNameBtn = document.querySelector('#submit');
+
+var highscoreButton = document.querySelector('#linkHS');
+var hsPage = document.querySelector('#showClickHS');
 
 var questionsArr = [
     {
@@ -44,16 +47,25 @@ function displayState() {
         startEl.style.display = 'block';
         quizEl.style.display = 'none';
         endEl.style.display = 'none';
+        hsPage.style.display = 'none';
     }
     if (state === 'quizBody') {
         startEl.style.display = 'none';
         quizEl.style.display = 'block';
         endEl.style.display = 'none';
+        hsPage.style.display = 'none';
     }
     if (state === 'end') {
         startEl.style.display = 'none';
         quizEl.style.display = 'none';
         endEl.style.display = 'block';
+        hsPage.style.display = 'block';
+    }
+    if (state === 'highScorePage') {
+        startEl.style.display = 'none';
+        quizEl.style.display = 'none';
+        endEl.style.display = 'none';
+        hsPage.style.display = 'block'; 
     }
 }
 
@@ -83,7 +95,6 @@ function setTimer() {
         }
         if (state === 'end' && time > 0) {
             score = time;
-            console.log(score);
             clearInterval(timerInterval);
             message.textContent = 'Your score is ' + score;
         }
@@ -164,25 +175,29 @@ quizTitle.addEventListener("click", function () {
     
 });
 
+highscoreButton.addEventListener('click', function() {
+    state = 'highScorePage';
+    displayState();
+})
+
 //Local storage
+
 var createScore = document.querySelector('#addScore');
 
-// submitNameBtn.addEventListener('submit', function (event) {
-//     // event.preventDefault();
+submitNameBtn.addEventListener('click', function () {
+    // event.preventDefault();
+    console.log('is this working');
+    var scores = JSON.parse(localStorage.getItem("userScore")) || [];
+    console.log(nameInput);
+    var userScore = {
+        username: nameInput.value,
+        highscore: score.value
+    };
 
-//     // var newScore = document.createElement('p');
-//     // newScore.textContent = nameInput + score;
-//     // createScore.appendChild(newScore);
-//     var userScore = {
-//         username: nameInput.value,
-//         highscore: score.value
-//     };
+    scores.push(userScore);
+    console.log(scores);
 
-//     var scores = JSON.parse(localStorage.getItem("userScore")) || [];
-
-//     scores.push(userScore);
-
-//     localStorage.setItem('userScore', JSON.stringify(scores));
-// });
+    localStorage.setItem('userScore', JSON.stringify(scores));     
+});
 
 init();

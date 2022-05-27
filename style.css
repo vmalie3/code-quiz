@@ -63,7 +63,7 @@ a {
 #fixRGB {
     color: rgb(90, 5, 90);
     text-decoration: underline white;
-
+    text-align: center;
 }
 
 #submit {
