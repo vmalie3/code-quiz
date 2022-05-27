@@ -16,6 +16,8 @@ var choiceD = document.querySelector('#choiceBtn4');
 
 var message = document.querySelector('#message');
 
+var nameInput = document.getElementById('#nameInput');
+var submitNameBtn = document.querySelector('#submit');
 
 var questionsArr = [
     {
@@ -162,24 +164,28 @@ beginBtn.addEventListener("click", function () {
 quizTitle.addEventListener("click", function () {
     state = 'end';
     displayState();
+    
 });
 
 //Local storage
+var createScore = document.querySelector('#addScore');
 
+submitNameBtn.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-var username = localStorage.getItem('#nameInput');
-var submitBtn = document.querySelector('#submit');
-var score = parseInt(localStorage.getItem('score'));
-var nameInput = document.querySelector('#nameInput');
+    var newScore = document.createElement('p');
+    newScore.textContent = nameInput + score;
+    createScore.appendChild(newScore);
+    // var userScore = {
+    //     username: nameInput.value,
+    //     highscore: score.value
+    // };
 
-submitBtn.addEventListener('submit', function () {
-    localStorage.setItem('name', nameInput);
-    // if (nameInput = '') {
-    //     message.textContent = 'Error; Please enter a name';
-    // } else {
-    //     message.textContent = 'Score logged to High Scores';
-    //     localStorage.setItem('name', nameInput);
-    // }
-})
+    // var scores = JSON.parse(localStorage.getItem("userScore")) || [];
+
+    // scores.push(userScore);
+
+    // localStorage.setItem('userScore', JSON.stringify(scores));
+});
 
 init();

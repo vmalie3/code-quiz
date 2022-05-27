@@ -18,14 +18,14 @@
         <button id="begin">Start Quiz</button>
     </section>
     <section id = "quizBody">
-        <h3 id="title">Questions</h3>
+        <h3 id="title">Questions:</h3>
         <h2 id = "questions"></h2>
-        <ol id = "choices">
-            <li><button class = "choice" id = "choiceBtn1"></button></li>
-            <li><button class = "choice" id = "choiceBtn2"></button></li>
-            <li><button class = "choice" id = "choiceBtn3"></button></li>
-            <li><button class = "choice" id = "choiceBtn4"></button></li>
-        </ol>
+        <section id = "choices">
+            <p><button class = "choice" id = "choiceBtn1"></button></p>
+            <p><button class = "choice" id = "choiceBtn2"></button></p>
+            <p><button class = "choice" id = "choiceBtn3"></button></p>
+            <p><button class = "choice" id = "choiceBtn4"></button></p>
+        </section>
     </section>
     <section>
         <p id = "time">Time Left: <span id = "timeLeft"></span></p>
@@ -35,6 +35,10 @@
         <input type="text" placeholder="jane doe" id=namInput/>
         <button id="submit">Submit</button>
         <p id="message"></p>
+        <div>
+            <h2>High Scores</h2>
+            <div id="addScore"></div>
+        </div>
     </section>
     <script src = "./script.js"></script>
 </body>

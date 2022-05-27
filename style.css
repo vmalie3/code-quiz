@@ -30,5 +30,13 @@ a {
 }
 
 #message {
-    
+
+}
+
+#questions {
+    text-align: center;
+}
+
+#choices {
+    text-align: center;
 }
