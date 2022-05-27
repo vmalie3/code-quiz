@@ -19,8 +19,6 @@ var username = localStorage.getItem('name');
 var submitBtn = document.querySelector('#submit');
 var score = parseInt(localStorage.getItem('score'));
 
-//array of objects with question, choices, and answer
-
 var questionsArr = [
     {
         question: 'What is the typical color of grass?',
@@ -39,8 +37,6 @@ var questionsArr = [
     }
 
 ]
-
-//display state functions to choose what is visible
 
 function displayState() {
     if (state === 'begin') {
@@ -64,17 +60,14 @@ function init() {
     displayState();
 }
 
-//timer functions
-
 function displayTimer() {
     timer.textContent = time;
 }
 
-
-var time = 5;
+var time = 10;
 
 function setTimer() {
-        displayTimer();
+    displayTimer();
     var timerInterval = setInterval(function () {
         time--;
         displayTimer();
@@ -91,8 +84,6 @@ function setTimer() {
     }, 1000);
 }
 
-//function to show question and answer choices
-
 var questionIndex = 0;
 function displayQuestions() {
     question.textContent = questionsArr[questionIndex].question;
@@ -103,31 +94,34 @@ function displayQuestions() {
 }
 
 function nextQuestion() {
-    questionIndex++;
-    choiceBtns.addEventListener('click', function() {
-        nextQuestion();
-    });
+    if (questionIndex === 2) {
+        state = 'end';
+        displayState();
+    } else {
+        questionIndex++;
+        displayQuestions();
+    }
 }
-
-//change question after a choice has been clicked
-
-// for (var i = 0; i < choiceBtns.length; i++) {
-//     choiceBtns[i].addEventListener('click', function() {
-//         questionIndex++;
-//     });
-// }
-
 
 beginBtn.addEventListener("click", function () {
     state = 'quizBody';
     displayState();
     setTimer();
     displayQuestions();
-
+    choiceA.addEventListener('click', function() {
+        nextQuestion();
+    })
+    choiceB.addEventListener('click', function() {
+        nextQuestion();
+    })
+    choiceC.addEventListener('click', function() {
+        nextQuestion();
+    })
+    choiceD.addEventListener('click', function() {
+        nextQuestion();
+    })
 });
 
-
-//display end screen
 
 quizTitle.addEventListener("click", function () {
     state = 'end';
